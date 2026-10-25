@@ -1,0 +1,53 @@
+# Japan Overseas Dependents Check
+
+> Free, unofficial checker for Japan's income-tax deductions for relatives who live outside Japan (国外居住親族に係る扶養控除等): who qualifies by age on Dec 31, the ¥380,000 remittance rule for ages 30-69, deduction amounts under the 2026 reform (dependent and spouse income limit ¥620,000), spouse and spouse-special tables, the special exemption for relatives aged 19-22, disability add-ons, and the documents to give your employer at the year-end adjustment (年末調整). Rules as of 2026-10-25. Educational, not tax advice; not affiliated with the National Tax Agency (NTA).
+
+Site: https://japan-overseas-dependents.vercel.app
+
+## Key facts (official sources below)
+- Relative abroad, age on Dec 31: under 16 → no dependent exemption; 16-29 → yes (¥380,000; 19-22 specified ¥630,000); 70+ → elderly ¥480,000; 30-69 → only if (1) left Japan to study abroad, (2) disabled under Japanese criteria, or (3) you paid them ¥380,000+ in the year for living/education costs.
+- Income limit (合計所得金額): ¥620,000 for 2026 (effective 2026-12-01, applied at the 2026 year-end adjustment), ¥580,000 for 2025. For non-residents generally only Japan-source income counts.
+- Age 19-22 with income ¥620,001-¥1,230,000: special exemption for specified relatives, ¥630,000 down to ¥30,000.
+- Spouse abroad: no age test. Spouse exemption ¥380,000 / ¥260,000 / ¥130,000 by your income (≤¥9M / ≤¥9.5M / ≤¥10M), ¥480,000 / ¥320,000 / ¥160,000 if 70+. Spouse special exemption for spouse income ¥620,001-¥1,330,000. None if your income > ¥10M.
+- Documents: relationship document (親族関係書類: foreign government document with name, birth date, address, or 戸籍の附票 + passport copy) with the application; remittance records (送金関係書類) for the year at the year-end adjustment; for the 30-69 ¥380,000 route, records totalling ¥380,000 (38万円送金書類). Japanese translation for foreign documents.
+- Valid payments: bank / money-transfer, family credit card used by the relative, electronic payment (stablecoin) via a registered operator (from 2024). Not valid: cash by hand or via a friend, one transfer to a representative for several relatives (counts only for that person), joint accounts.
+- 3+ payments to one relative: NTA 送金関係書類の明細書 + first and last records; on the ¥380,000 route, if first + last < ¥380,000, also proof the total reaches ¥380,000.
+- Sending date counts (Dec 31 send counts for that year). Missed the year-end adjustment → final return (確定申告).
+
+## API (free, no key, CORS open)
+
+### GET
+GET https://japan-overseas-dependents.vercel.app/api/check?relationship=parent&age=62&remittanceTotal=450000&remittanceCount=6&marginalRate=10
+→ verdict "eligible", route "support_380k", deductions [dependent_general ¥380,000], totalDeduction 380000, estimatedIncomeTaxSaving 38798, remittance {minimumTotal 380000, shortfall null, statementOption}, documents {withForm, atYearEnd}, forms, steps, warnings, sources, disclaimer
+
+### POST
+POST https://japan-overseas-dependents.vercel.app/api/check
+{"relationship":"parent","age":62,"remittanceTotal":300000}
+→ verdict "short_of_380k", remittance.shortfall 80000
+
+Parameters: relationship (spouse | child | parent | grandparent | sibling | grandchild | other; aliases mother, wife, son, 母…), age (on Dec 31) or birthDate, year (2026 default | 2025), relativeIncome, taxpayerIncome, studyingAbroad, disability (none | disabled | special), remittanceTotal, remittanceCount, firstLastTotal, method (bank | credit_card | electronic_payment | cash | via_representative | joint_account), marginalRate (5-45).
+
+### Other endpoints
+- GET https://japan-overseas-dependents.vercel.app/api/rules
+- https://japan-overseas-dependents.vercel.app/openapi.json
+- https://japan-overseas-dependents.vercel.app/.well-known/ai-plugin.json
+- MCP: tool japan_overseas_dependents_check on https://free-agent-tools.vercel.app/mcp
+
+## Sources (official)
+- https://www.nta.go.jp/publication/pamph/pdf/0022009-107_02.pdf (NTA Q&A on relatives living abroad, revised Aug 2026)
+- https://www.nta.go.jp/english/taxes/individual/12016.htm (NTA English: exemption for dependents living outside Japan)
+- https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1180.htm (Tax Answer 1180: dependent exemption)
+- https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1177.htm (Tax Answer 1177: specified relatives)
+- https://www.nta.go.jp/taxes/tetsuzuki/shinsei/annai/gensen/kokugai/sokin/index02.htm (remittance statement)
+- https://www.nta.go.jp/publication/pamph/gensen/nencho2026/pdf/115.pdf (2026 tables incl. spouse)
+- https://www.nta.go.jp/publication/pamph/gensen/nencho2026/pdf/302_en.pdf (English: kinds of deduction 2026)
+
+## Disclaimer
+Educational estimate, not tax advice, not affiliated with the NTA. Income tax only (resident tax not calculated). It can't verify documents or payments. Your employer / tax office decides; confirm with them or a licensed tax accountant.
+
+## Other free tools by the same maker
+- Japan Re-entry Deadline Check: https://japan-reentry-check.vercel.app
+- Japan Visa Fee Calculator: https://japan-visa-fee.vercel.app
+- Japan PR Guideline Check: https://japan-pr-check.vercel.app
+- Japan International Postage 2027: https://japan-intl-postage.vercel.app
+- Free Agent Tools MCP: https://free-agent-tools.vercel.app

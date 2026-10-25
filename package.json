@@ -1,0 +1,31 @@
+{
+  "name": "japan-overseas-dependents",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Free checker for Japan's tax deduction for relatives living abroad (\u56fd\u5916\u5c45\u4f4f\u89aa\u65cf\u306e\u6276\u990a\u63a7\u9664): eligibility by age and route (\u00a5380,000 remittance test for ages 30-69), 2026 deduction amounts under the new \u00a5620,000 income limit, spouse and specified-relative tables, and the documents to give your employer. Keyless JSON API + MCP.",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test": "node --import tsx --test lib/dependents.test.ts lib/api.test.ts lib/share.test.ts"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "next": "^16.3.5",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "^16.3.5",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.15",
+    "typescript": "^5"
+  }
+}
