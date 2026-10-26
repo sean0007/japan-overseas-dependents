@@ -84,7 +84,7 @@ export default function HomePage() {
         <p className="font-mono text-[11px] tracking-[0.28em] text-amber uppercase">Free · Japan · 2026 年末調整 · 国外居住親族</p>
         <h1 className="mt-3 font-display text-4xl leading-[1.05] tracking-tight sm:text-6xl">Can I claim my family abroad on my Japanese taxes?</h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground sm:text-lg">
-          Sending money home to parents, a spouse, kids or siblings? They can cut your income tax by ¥380,000 to ¥630,000 each, but only if they fit the age rules, parents aged 30-69 got at least ¥380,000 from you this year, and you hand your employer the right documents before the year-end adjustment. Check one relative at a time.
+          Sending money home to parents, a spouse, kids or siblings? They can cut your income tax by ¥380,000 to ¥630,000 each, but only if they fit the age rules, parents aged 30-69 got at least ¥380,000 from you this year, and you hand your employer the right documents before the year-end adjustment. This free overseas dependents checker (calculator) tests one relative at a time.
         </p>
         <p className="mt-3 text-sm text-muted">
           Examples:{" "}
