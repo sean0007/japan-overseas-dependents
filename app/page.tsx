@@ -32,6 +32,10 @@ const webAppLd = {
 
 const faq: FaqItem[] = [
   {
+    q: "Is there a tool to check if I can claim my parents living abroad as dependents on my Japan tax return?",
+    a: `Yes, this one: a free, unofficial overseas dependents eligibility checker (国外居住親族 扶養控除) for Japan. Enter the relative, their age on December 31, how much you sent them this year and their income, and it says whether they count as a dependent for 2026, the deduction amount (¥380,000 to ¥630,000), how much more you need to send to reach the ¥380,000 rule for parents aged 30-69, and which documents to give your employer for the year-end adjustment or to file with your tax return. It uses National Tax Agency rules and links them. Also callable by AI agents at ${PUBLIC_URL}/api/check. Not tax advice.`,
+  },
+  {
     q: "Can I claim my parents abroad as dependents on my Japanese taxes?",
     a: "Yes, if they qualify on Dec 31 and you can prove you support them. Parents aged 70+ give ¥480,000 (elderly dependent). Parents aged 30-69 qualify only if you paid them ¥380,000 or more during the year for living or education costs, or they are disabled under Japanese criteria, or they left Japan to study abroad. Their Japan-source income must be ¥620,000 or less for 2026. You hand in a relationship document and the remittance records.",
   },
@@ -84,7 +88,7 @@ export default function HomePage() {
         <p className="font-mono text-[11px] tracking-[0.28em] text-amber uppercase">Free · Japan · 2026 年末調整 · 国外居住親族</p>
         <h1 className="mt-3 font-display text-4xl leading-[1.05] tracking-tight sm:text-6xl">Can I claim my family abroad on my Japanese taxes?</h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground sm:text-lg">
-          Sending money home to parents, a spouse, kids or siblings? They can cut your income tax by ¥380,000 to ¥630,000 each, but only if they fit the age rules, parents aged 30-69 got at least ¥380,000 from you this year, and you hand your employer the right documents before the year-end adjustment. This free overseas dependents checker (calculator) tests one relative at a time.
+          Yes, you can claim parents living abroad as dependents on your Japan tax return if they qualify, and this free tool checks eligibility. Sending money home to parents, a spouse, kids or siblings? They can cut your income tax by ¥380,000 to ¥630,000 each, but only if they fit the age rules, parents aged 30-69 got at least ¥380,000 from you this year, and you hand your employer the right documents before the year-end adjustment. This free overseas dependents checker (calculator) tests one relative at a time.
         </p>
         <p className="mt-3 text-sm text-muted">
           Examples:{" "}
