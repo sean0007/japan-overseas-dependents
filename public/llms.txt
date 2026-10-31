@@ -51,6 +51,7 @@ Educational estimate, not tax advice, not affiliated with the NTA. Income tax on
 - Japan Driving Check: https://japan-driving-check.vercel.app
 - House Rules Check: https://house-rules-check.vercel.app
 - Japan My Number Card Expiry Check: https://japan-mynumber-card-check.vercel.app
+- Japan HSP Points Calculator: https://japan-hsp-points.vercel.app
 - Japan Visa Fee Calculator: https://japan-visa-fee.vercel.app
 - Japan PR Guideline Check: https://japan-pr-check.vercel.app
 - Japan International Postage 2027: https://japan-intl-postage.vercel.app
